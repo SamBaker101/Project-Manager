@@ -60,11 +60,10 @@ void addProject(struct Project *n, int dueday, int duemonth, int dueyear, char *
 
   while(n->next != NULL){
     if ((dueyear < n->next->dueyear) ||
+
     ((dueyear == n->next->dueyear) &&
     (duemonth < n->next->duemonth)) ||
-    ((dueyear == n->next->dueyear) &&
-    (duemonth == n->next->duemonth) &&
-    (dueday < n->next->dueday)) ||
+
     ((dueyear == n->next->dueyear) &&
     (duemonth == n->next->duemonth) &&
     (dueday < n->next->dueday))){
