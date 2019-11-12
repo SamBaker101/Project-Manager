@@ -36,7 +36,8 @@ void getProject(struct Project *n){
   char detail[255];
   printf("Please enter the duedate for your project (dd/mm/yyyy)\n");
   scanf("%d/%d/%d", &dueday, &duemonth, &dueyear);
-  while(dueday > 31 || duemonth > 12){
+  while(dueday > 31 || dueday <= 0 ||
+        duemonth > 12 || duemonth <= 0){
     printf("Invalid date, please enter in the format dd/mm/yyyy \n");
     scanf("%d/%d/%d", &dueday, &duemonth, &dueyear);
   }
@@ -58,20 +59,18 @@ void addProject(struct Project *n, int dueday, int duemonth, int dueyear, char *
   strcpy(temp->descript, detail);
 
   while(n->next != NULL){
-    if (dueyear < n->next->dueyear){
+    if ((dueyear < n->next->dueyear) ||
+    ((dueyear == n->next->dueyear) &&
+    (duemonth < n->next->duemonth)) ||
+    ((dueyear == n->next->dueyear) &&
+    (duemonth == n->next->duemonth) &&
+    (dueday < n->next->dueday)) ||
+    ((dueyear == n->next->dueyear) &&
+    (duemonth == n->next->duemonth) &&
+    (dueday < n->next->dueday))){
       break;
     }
-    else if ((dueyear == n->next->dueyear) &&
-              (duemonth < n->next->duemonth)){
-      break;
-    }
-    else if ((dueyear == n->next->dueyear) &&
-              (duemonth == n->next->duemonth) &&
-              (dueday < n->next->dueday)){
-      break;
-    }
-    else
-      n = n->next;
+    n = n->next;
   }
 
   if (n->next != NULL){
