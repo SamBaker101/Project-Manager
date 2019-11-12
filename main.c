@@ -5,9 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include "Linklist.h"
-
-#define FILE_NAME "projectlist.txt"
+#include "include/Linklist.h"
 
 void handleInput(struct Project *, int *, int);
 void takeInput(struct Project *, int *);
