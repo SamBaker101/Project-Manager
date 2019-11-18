@@ -1,5 +1,5 @@
 # Project-Manager
-This is a project/task management software I am working on as a learning excercise. The software uses linked lists to manage a list of tasks. New tasks are automatically inserted into the list based on their due dates meaning the list is maintained in order and the list automatically loads from file on start-up and saves on quit.
+This is a project/task management software I am working on as a learning exercise. The software uses linked lists to manage a list of tasks. New tasks are automatically inserted into the list based on their due dates meaning the list is maintained in order and the list automatically loads from file on start-up and saves on quit.
 
 I created this project to improve my understanding of:
 - Data structures (Primarily but not limited too linked list structure)
