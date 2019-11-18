@@ -129,7 +129,7 @@ void loadList(struct Project* n){
   FILE *load_file = fopen(FILE_NAME, "r");
   int dueday, duemonth, dueyear;
   char descript[TEXT_LEN];
-  char buffer[2*TEXT_LEN];
+  char buffer[TEXT_LEN];
 
   while(fscanf(load_file, "%d/%d/%d %[^\n]",
         &dueday, &duemonth, &dueyear, &descript) != EOF)
