@@ -4,6 +4,16 @@
 #define FILE_NAME "bin/projectlist.txt"
 #define TEXT_LEN 128
 
+class Node{
+  int dueday, duemonth, dueyear;
+  string descript[TEXT_LEN];
+  Node *next;
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// C implementation to be removed upon completion of Node class
+
 struct Project{
   int dueday, duemonth, dueyear;
   char descript[TEXT_LEN];
