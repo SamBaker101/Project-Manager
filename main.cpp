@@ -2,7 +2,7 @@
 //Project Management/organizer
 
 #include <iostream>
-#include <string.h>
+#include <string>
 #include "include/Linklist.h"
 
 using namespace std;
