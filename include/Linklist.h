@@ -6,14 +6,38 @@
 
 class Node{
   int dueday, duemonth, dueyear;
-  string descript[TEXT_LEN];
+  char descript[TEXT_LEN];
   Node *next;
-}
+
+public:
+  Node(int, int, int, char* , Node*);
+  ~Node();
+
+  int getDay();
+  int getMonth();
+  int getYear();
+  char *getDescript();
+
+  void setDay(int);
+  void setMonth(int);
+  void setYear(int);
+  void setDescript(char *);
+
+  void getNodeInput();
+  void addNode(int, int, int, char*);
+  void printList();
+
+  void completeProject(struct Project*);
+  void freeProjects(struct Project*);
+  void saveList(struct Project*);
+
+
+};
 
 
 ///////////////////////////////////////////////////////////////////////
 // C implementation to be removed upon completion of Node class
-
+/*
 struct Project{
   int dueday, duemonth, dueyear;
   char descript[TEXT_LEN];
@@ -162,3 +186,4 @@ void freeProjects(struct Project *n){
   }
 
 }
+*/

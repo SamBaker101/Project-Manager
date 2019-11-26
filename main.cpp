@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
 #include "include/Linklist.h"
+
 
 using namespace std;
 
