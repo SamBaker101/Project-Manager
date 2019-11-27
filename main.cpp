@@ -9,11 +9,11 @@
 
 using namespace std;
 
-void handleInput(struct Project *, int *, int);
-void takeInput(struct Project *, int *);
+void handleInput(Node *, int *, int);
+void takeInput(Node *, int *);
 /////////////////////////////////////////////////////////////////////////
 
-void takeInput(struct Project *first, int *running){
+void takeInput(Node *first, int *running){
   int choice;
 
   printf("\nPlease make a selection: \n");
@@ -31,29 +31,29 @@ void takeInput(struct Project *first, int *running){
 
 /////////////////////////////////////////////////////////////////////////
 
-void handleInput(struct Project *first, int *running, int choice){
+void handleInput(Node *first, int *running, int choice){
   int temp_value, temp_index;
 
   switch (choice){
     case 1:
       printf("Printing your array: \n");
-      printList(first);
+      //first->printList();
       break;
 
     case 2:
-      getProject(first);
+      //first->getProject();
       break;
 
     case 3:
-      completeProject(first);
+      //first->completeProject();
       break;
 
     case 4:
-      saveList(first);
+      //first->saveList();
       break;
 
     case 5:
-      saveList(first);
+      //first->saveList();
       *running = 0;
       break;
 
@@ -66,20 +66,20 @@ void handleInput(struct Project *first, int *running, int choice){
 /////////////////////////////////////////////////////////////////////////
 
 int main(){
-  struct Project *first = (struct Project*)malloc(sizeof(struct Project)+1);
+  Node *first = (Node *)malloc(sizeof(Node)+1);
   int running = 1;
 
-  first->dueday = 0;
-  first->duemonth = 0;
-  first->dueyear = 0;
-  strcpy(first->descript, "Disregard");
-  first->next = NULL;
+  first->setDay(0);
+  first->setMonth(0);
+  first->setYear(0);
+  char tempString[] = "Disregard";
+  first->setDescript(tempString);
 
-  loadList(first);
+  //loadList(first);
 
   while(running){
     takeInput(first, &running);
 
   }
-freeProjects(first);
+//freeProjects(first);
 }

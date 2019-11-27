@@ -14,6 +14,13 @@ Node::Node(int day, int month, int year, char descript[TEXT_LEN], Node *ptrnext)
     next = ptrnext;
 }
 
+Node::Node(){
+  dueday = 0;
+  duemonth = 0;
+  dueyear = 0;
+  next = NULL;
+}
+
 Node::~Node(){
 }
 
@@ -21,11 +28,13 @@ Node::~Node(){
   int Node::getMonth(){return duemonth;}
   int Node::getYear(){return dueyear;}
   char *Node::getDescript(){return descript;}
+  Node* Node::getNext(){return next;}
 
-  void setDay(int day){dueday = day;}
-  void setMonth(int month){duemonth = month;}
-  void setYear(int year){dueyear = year;}
-  void setDescript(char info[TEXT_LEN]){strcpy(descript, info);}
+  void Node::setDay(int day){dueday = day;}
+  void Node::setMonth(int month){duemonth = month;}
+  void Node::setYear(int year){dueyear = year;}
+  void Node::setDescript(char info[TEXT_LEN]){strcpy(descript, info);}
+  void Node::setNext(Node *nextptr){next = nextptr;}
 
   void Node::getNodeInput(){
     int dueday, duemonth, dueyear;
@@ -48,6 +57,14 @@ Node::~Node(){
   void Node::addNode(int day, int month, int year, char* descript){
     Node *temp = (Node*)malloc(sizeof(Node)+1);
 
+    if (getNext() == NULL){
+      setNext(temp);
+      temp->setDay(day);
+      temp->setMonth(month);
+      temp->setYear(year);
+      temp->setDescript(descript);
+    }
+
     if ((dueyear < next->dueyear) ||
 
     ((dueyear == next->dueyear) &&
@@ -62,7 +79,7 @@ Node::~Node(){
     temp->setDay(day);
     temp->setMonth(month);
     temp->setYear(year);
-    temp->setDescript(descript);  
+    temp->setDescript(descript);
     }
 
     else{
@@ -72,6 +89,4 @@ Node::~Node(){
   }
 
 
-  void Node::printList();
-
-}
+  //void Node::printList();

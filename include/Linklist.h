@@ -11,17 +11,20 @@ class Node{
 
 public:
   Node(int, int, int, char* , Node*);
+  Node();
   ~Node();
 
   int getDay();
   int getMonth();
   int getYear();
   char *getDescript();
+  Node* getNext();
 
   void setDay(int);
   void setMonth(int);
   void setYear(int);
   void setDescript(char *);
+  void setNext(Node *);
 
   void getNodeInput();
   void addNode(int, int, int, char*);
