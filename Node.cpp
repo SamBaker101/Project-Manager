@@ -89,4 +89,17 @@ Node::~Node(){
   }
 
 
-  //void Node::printList();
+  void Node::printList(){
+    Node *temp = getNext();
+    printNode();
+    next->printList();
+  }
+
+  void Node::printNode(){
+    int day = getDay();
+    int month = getMonth();
+    int year = getYear();
+    char *descript = getDescript();
+
+    cout<<day<<"/"<<month<<"/"<<year<<" : "<<descript<<endl;
+  }

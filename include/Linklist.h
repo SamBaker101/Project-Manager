@@ -18,7 +18,7 @@ public:
   int getMonth();
   int getYear();
   char *getDescript();
-  Node* getNext();
+  Node *getNext();
 
   void setDay(int);
   void setMonth(int);
@@ -29,6 +29,7 @@ public:
   void getNodeInput();
   void addNode(int, int, int, char*);
   void printList();
+  void printNode();
 
   void completeProject(struct Project*);
   void freeProjects(struct Project*);

@@ -37,11 +37,11 @@ void handleInput(Node *first, int *running, int choice){
   switch (choice){
     case 1:
       printf("Printing your array: \n");
-      //first->printList();
+      first->printList();
       break;
 
     case 2:
-      //first->getProject();
+      first->getNodeInput();
       break;
 
     case 3:
