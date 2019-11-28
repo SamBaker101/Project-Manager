@@ -152,3 +152,42 @@ Node::~Node(){
       i++;
       }
   }
+
+  void Node::saveList(Node* n){
+    FILE *save_file = fopen(FILE_NAME, "w");
+    int i = 0;
+
+    if (save_file != NULL){
+      n = n->getNext();
+      while(n != NULL){
+        fprintf(save_file, "%d/%d/%d %s \n", n->getDay(), n->getMonth(), n->getYear(), n->getDescript());
+        n = n->getNext();
+      }
+    fclose(save_file);
+    }
+  }
+
+  void Node::loadList(Node* n){
+    FILE *load_file = fopen(FILE_NAME, "r");
+    int dueday, duemonth, dueyear;
+    char descript[TEXT_LEN];
+    char buffer[TEXT_LEN];
+
+    while(fscanf(load_file, "%d/%d/%d %[^\n]",
+          &dueday, &duemonth, &dueyear, &descript) != EOF)
+          {
+      addNode(dueday, duemonth, dueyear, descript);
+    }
+
+    fclose(load_file);
+  }
+
+  void Node::freeProjects(Node *n){
+    Node *next;
+
+    while(n != NULL){
+      next = n->next;
+      free(n);
+      n = next;
+    }
+  }

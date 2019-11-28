@@ -49,11 +49,11 @@ void handleInput(Node *first, int *running, int choice){
       break;
 
     case 4:
-      //first->saveList();
+      first->saveList(first);
       break;
 
     case 5:
-      //first->saveList();
+      first->saveList(first);
       *running = 0;
       break;
 
@@ -75,16 +75,11 @@ int main(){
   char tempString[] = "Disregard";
   first->setDescript(tempString);
 
-  first->addNode(12, 06, 2010, tempString);
-  first->addNode(12, 10, 2010, tempString);
-  first->addNode(12, 11, 2010, tempString);
-  first->addNode(12, 12, 2010, tempString);
-
-  //loadList(first);
+  first->loadList(first);
 
   while(running){
     takeInput(first, &running);
 
   }
-//freeProjects(first);
+first->freeProjects(first);
 }
