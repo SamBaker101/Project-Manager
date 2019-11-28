@@ -5,7 +5,7 @@
 #define TEXT_LEN 128
 
 class Node{
-  int dueday, duemonth, dueyear;
+  int dueday, duemonth, dueyear, index;
   char descript[TEXT_LEN];
   Node *next;
 
@@ -19,8 +19,10 @@ public:
   int getYear();
   char *getDescript();
   Node *getNext();
+  int getIndex();
 
   void setDay(int);
+  void setIndex(int);
   void setMonth(int);
   void setYear(int);
   void setDescript(char *);
@@ -31,9 +33,9 @@ public:
   void printList();
   void printNode();
 
-  void completeProject(struct Project*);
-  void freeProjects(struct Project*);
-  void saveList(struct Project*);
+  void setIndices();
+  void selectNode();
+
 
 
 };

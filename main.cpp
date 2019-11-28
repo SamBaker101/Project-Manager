@@ -75,6 +75,11 @@ int main(){
   char tempString[] = "Disregard";
   first->setDescript(tempString);
 
+  first->addNode(12, 06, 2010, tempString);
+  first->addNode(12, 10, 2010, tempString);
+  first->addNode(12, 11, 2010, tempString);
+  first->addNode(12, 12, 2010, tempString);
+
   //loadList(first);
 
   while(running){

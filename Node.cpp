@@ -2,7 +2,8 @@
 //Project Management/organizer
 
 #include <iostream>
-#include <string.h>
+#include <string>
+#include <cstring>
 #include "include/Linklist.h"
 
 using namespace std;
@@ -11,6 +12,7 @@ Node::Node(int day, int month, int year, char descript[TEXT_LEN], Node *ptrnext)
     dueday = day;
     duemonth = month;
     dueyear = year;
+    index = 0;
     next = ptrnext;
 }
 
@@ -18,24 +20,30 @@ Node::Node(){
   dueday = 0;
   duemonth = 0;
   dueyear = 0;
+  index = 0;
   next = NULL;
 }
 
 Node::~Node(){
 }
 
+// Get Functions //
   int Node::getDay(){return dueday;}
   int Node::getMonth(){return duemonth;}
   int Node::getYear(){return dueyear;}
   char *Node::getDescript(){return descript;}
   Node* Node::getNext(){return next;}
+  int Node::getIndex(){return index;}
 
+// Set Functions //
   void Node::setDay(int day){dueday = day;}
   void Node::setMonth(int month){duemonth = month;}
   void Node::setYear(int year){dueyear = year;}
-  void Node::setDescript(char *info){strcpy(descript, info);}
+  void Node::setDescript(char *detail){strcpy(descript, detail);}
   void Node::setNext(Node *nextptr){next = nextptr;}
+  void Node::setIndex(int i){index = i;}
 
+// Link List Functions //
   void Node::getNodeInput(){
     int dueday, duemonth, dueyear;
     char detail[TEXT_LEN];
@@ -57,32 +65,26 @@ Node::~Node(){
   void Node::addNode(int day, int month, int year, char* descript){
     Node *temp = (Node*)malloc(sizeof(Node)+1);
     Node *temp2 = getNext();
-
-    if (getNext() == NULL){
-      temp->setDay(day);
-      temp->setMonth(month);
-      temp->setYear(year);
-      temp->setDescript(descript);
-      temp->setNext(NULL);
-
-      setNext(temp);
-    }
-
-    else if ((dueyear < next->dueyear) ||
-
-    ((dueyear == next->dueyear) &&
-    (duemonth < next->duemonth)) ||
-
-    ((dueyear == next->dueyear) &&
-    (duemonth == next->duemonth) &&
-    (dueday < next->dueday))){
-
+    int ind = getIndex();
 
     temp->setDay(day);
     temp->setMonth(month);
     temp->setYear(year);
-    temp->setDescript(descript);
+    temp->setDescript(descript);;
 
+    if (getNext() == NULL){
+      temp->setNext(NULL);
+      setNext(temp);
+    }
+
+    else if ((year < temp2->getYear())||
+      ((year == temp2->getYear()) &&
+      (month < temp2->getMonth())) ||
+      ((year == temp2->getYear() &&
+      (month == temp2->getMonth()) &&
+      (day < temp2->getDay()))))
+
+    {
     temp->setNext(temp2);
     setNext(temp);
     }
@@ -93,11 +95,13 @@ Node::~Node(){
 
   }
 
-
   void Node::printList(){
+
+    setIndices();
+
     Node *temp = getNext();
-    if (temp){
-      temp->printNode();
+    if (temp){;
+      temp->printNode();;
       temp->printList();
       }
   }
@@ -108,5 +112,21 @@ Node::~Node(){
     int year = getYear();
     char *descript = getDescript();
 
-    cout<<day<<"/"<<month<<"/"<<year<<" : "<<descript<<endl;
+    cout<<index<<" - "<<day<<"/"<<month<<"/"<<year<<" : "<<descript<<endl;
+  }
+
+  void Node::setIndices(){
+    Node *temp = getNext();
+    static int i = 1;
+      if (temp){
+        temp->setIndex(i);
+        i++;
+        temp->setIndices();
+      }
+  }
+
+  void Node::selectNode(){
+    printList();
+    cout<<"Please select a Project"<<endl;
+
   }
