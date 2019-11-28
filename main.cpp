@@ -45,7 +45,7 @@ void handleInput(Node *first, int *running, int choice){
       break;
 
     case 3:
-      //first->completeProject();
+      first->deleteNode(first, first->selectNode());
       break;
 
     case 4:

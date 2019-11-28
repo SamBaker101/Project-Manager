@@ -27,14 +27,15 @@ public:
   void setYear(int);
   void setDescript(char *);
   void setNext(Node *);
+  void setIndices();
 
   void getNodeInput();
   void addNode(int, int, int, char*);
   void printList();
   void printNode();
 
-  void setIndices();
-  void selectNode();
+  int selectNode();
+  void deleteNode(Node*, int);
 
 
 

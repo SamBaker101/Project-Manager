@@ -42,6 +42,14 @@ Node::~Node(){
   void Node::setDescript(char *detail){strcpy(descript, detail);}
   void Node::setNext(Node *nextptr){next = nextptr;}
   void Node::setIndex(int i){index = i;}
+  void Node::setIndices(){
+    Node *temp = getNext();
+    int i = 1;
+      while (temp){
+        temp->setIndex(i++);
+        temp = temp->getNext();
+      }
+  }
 
 // Link List Functions //
   void Node::getNodeInput(){
@@ -116,17 +124,31 @@ Node::~Node(){
     cout<<index<<" - "<<day<<"/"<<month<<"/"<<year<<" : "<<descript<<endl;
   }
 
-  void Node::setIndices(){
-    Node *temp = getNext();
-    int i = 1;
-      while (temp){
-        temp->setIndex(i++);
-        temp = temp->getNext();
-      }
-  }
-
-  void Node::selectNode(){
+  int Node::selectNode(){
+    int i;
     printList();
     cout<<"Please select a Project"<<endl;
+    cin>>i;
 
+    return i;
+  }
+
+  void Node::deleteNode(Node *n, int index){
+    Node *temp, *temp2;
+    int i = 1;
+
+    while (n != NULL){
+
+      if(i == index){
+        temp = n->getNext();
+        if(temp){
+          temp2 = temp->getNext();
+          n->setNext(temp2);
+          free(temp);
+          }
+
+        }
+      n = n->getNext();
+      i++;
+      }
   }
