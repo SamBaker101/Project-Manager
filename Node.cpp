@@ -100,9 +100,9 @@ Node::~Node(){
     setIndices();
 
     Node *temp = getNext();
-    if (temp){;
-      temp->printNode();;
-      temp->printList();
+    while (temp){
+      temp->printNode();
+      temp = temp->getNext();
       }
   }
 
@@ -111,17 +111,17 @@ Node::~Node(){
     int month = getMonth();
     int year = getYear();
     char *descript = getDescript();
+    int index = getIndex();
 
     cout<<index<<" - "<<day<<"/"<<month<<"/"<<year<<" : "<<descript<<endl;
   }
 
   void Node::setIndices(){
     Node *temp = getNext();
-    static int i = 1;
-      if (temp){
-        temp->setIndex(i);
-        i++;
-        temp->setIndices();
+    int i = 1;
+      while (temp){
+        temp->setIndex(i++);
+        temp = temp->getNext();
       }
   }
 
