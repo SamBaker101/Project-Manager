@@ -11,17 +11,16 @@ using namespace std;
 
 void handleInput(Node *, int *, int);
 void takeInput(Node *, int *);
-/////////////////////////////////////////////////////////////////////////
 
 void takeInput(Node *first, int *running){
   int choice;
 
-  printf("\nPlease make a selection: \n");
-  printf("1 - Show Project List \n");
-  printf("2 - Add a Project \n");
-  printf("3 - Delete a Project \n");
-  printf("4 - Save Project List \n");
-  printf("5 - Quit\n");
+  cout<<"\nPlease make a selection: \n";
+  cout<<"1 - Show Project List \n";
+  cout<<"2 - Add a Project \n";
+  cout<<"3 - Delete a Project \n";
+  cout<<"4 - Save Project List \n";
+  cout<<"5 - Quit\n";
 
   scanf("%d", &choice);
   printf("\n");
@@ -29,14 +28,12 @@ void takeInput(Node *first, int *running){
   handleInput(first, running, choice);
 }
 
-/////////////////////////////////////////////////////////////////////////
-
 void handleInput(Node *first, int *running, int choice){
   int temp_value, temp_index;
 
   switch (choice){
     case 1:
-      printf("Printing your array: \n");
+      cout<<"Printing your array: \n";
       first->printList();
       break;
 
@@ -58,12 +55,10 @@ void handleInput(Node *first, int *running, int choice){
       break;
 
     default:
-      printf("Not a valid selection\n");
+      cout<<"Not a valid selection\n";
       break;
     }
 }
-
-/////////////////////////////////////////////////////////////////////////
 
 int main(){
   Node *first = (Node *)malloc(sizeof(Node)+1);
