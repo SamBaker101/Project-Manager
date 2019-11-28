@@ -50,7 +50,7 @@ Node::~Node(){
     printf("Please enter the details for this project:\n");
     scanf("\n%[^\n]%*c", detail);
 
-    addNode(dueday, duemonth, dueyear, descript);
+    addNode(dueday, duemonth, dueyear, detail);
 
   }
 
