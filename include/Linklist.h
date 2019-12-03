@@ -1,5 +1,7 @@
 //Sam Baker
 //Link list and node Management
+#ifndef NODE_H
+#define NODE_H
 
 #define FILE_NAME "bin/projectlist.txt"
 #define TEXT_LEN 128
@@ -45,3 +47,5 @@ public:
   void freeProjects(Node *);
 
 };
+
+#endif

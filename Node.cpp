@@ -6,6 +6,7 @@
 #include <cstring>
 #include "include/Linklist.h"
 
+
 using namespace std;
 
 Node::Node(int day, int month, int year, char descript[TEXT_LEN], Node *ptrnext){
@@ -55,15 +56,15 @@ Node::~Node(){
   void Node::getNodeInput(){
     int dueday, duemonth, dueyear;
     char detail[TEXT_LEN];
-    printf("Please enter the duedate for your project (dd/mm/yyyy)\n");
+    cout<<"Please enter the duedate for your project (dd/mm/yyyy)\n";
     scanf("%d/%d/%d", &dueday, &duemonth, &dueyear);
     while(dueday > 31 || dueday <= 0 ||
           duemonth > 12 || duemonth <= 0){
-      printf("Invalid date, please enter in the format dd/mm/yyyy \n");
+      cout<<"Invalid date, please enter in the format dd/mm/yyyy \n";
       scanf("%d/%d/%d", &dueday, &duemonth, &dueyear);
     }
 
-    printf("Please enter the details for this project:\n");
+    cout<<"Please enter the details for this project:\n";
     scanf("\n%[^\n]%*c", detail);
 
     addNode(dueday, duemonth, dueyear, detail);

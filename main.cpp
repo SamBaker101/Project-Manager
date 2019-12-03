@@ -6,11 +6,12 @@
 #include <cstring>
 #include "include/Linklist.h"
 
-
 using namespace std;
 
 void handleInput(Node *, int *, int);
 void takeInput(Node *, int *);
+
+//////////////////////////////////////////////
 
 void takeInput(Node *first, int *running){
   int choice;
